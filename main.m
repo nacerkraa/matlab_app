@@ -4,7 +4,6 @@ clc, clearvars, close all
 
 % Define variables
 numUnknownNodes = 40;
-
 distBeaconNodes = 10;
 popSize = 50;
 beaconNodes = [5, 10; 18, 26; 15, 30; 20, 35; 25, 25; 30, 40; 35, 14; 40, 20; 42, 10; 50, 5];
@@ -50,4 +49,6 @@ for i = (numBeaconNodes+1): (numBeaconNodes + numUnknownNodes)
     end
 end
 
-findPosition(MyBeacon, UnkownPosition);
+% Choose random postion to estimate it location
+
+estimateLocation(MyBeacon, UnkownPosition);
