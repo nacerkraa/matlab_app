@@ -6,7 +6,7 @@ clc, clearvars, close all
 numUnknownNodes = 40;
 
 distBeaconNodes = 10;
-popSize = 30;
+popSize = 50;
 beaconNodes = [5, 10; 18, 26; 15, 30; 20, 35; 25, 25; 30, 40; 35, 14; 40, 20; 42, 10; 50, 5];
 numBeaconNodes = length(beaconNodes);
 coordinates = NaN(numUnknownNodes + numBeaconNodes,2);
@@ -27,14 +27,6 @@ xlabel('Ligne');
 ylabel('Colonne');
 legend('Noeuds balises', 'Noeuds inconnus');
 
-for i = (numBeaconNodes+1):(numBeaconNodes+numUnknownNodes)
-
-    rowCoord = randi([1, 50]);
-    colCoord = randi([1, 50]);
-   
-    coordinates(i, :) = [rowCoord, colCoord];
-end
-
 
 MyBeacon = [];
 UnkownPosition = [];
@@ -48,11 +40,10 @@ for i = (numBeaconNodes+1): (numBeaconNodes + numUnknownNodes)
         if distance < distBeaconNodes 
             count = count+1;
             
-            
             TablBeacon(end+1,:) = [coordinates(j,1),coordinates(j,2)]; % intialis? deux valeur a TablBeacon.coordinates(j,1),coordinates(j,2
         end
         
-        if size(TablBeacon,1) >= 3
+        if length(TablBeacon) >= 3
             UnkownPosition = coordinates(i,:);
             MyBeacon = TablBeacon;
         end

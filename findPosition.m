@@ -13,7 +13,7 @@ end
 figure(2)
 makeGraph(beaconNodes,reelPos,coordinates); % draw the graph of the population and the beacons nodes
 
-for i = 1:10
+for i = 1:40
     bestPositions = assumeLocation(beaconNodes, coordinates);
     coordinates = [beaconNodes ;bestPositions];
 end
