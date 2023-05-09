@@ -25,7 +25,7 @@ scatter(coordinates(numBeaconNodes+1:end, 1), coordinates(numBeaconNodes+1:end, 
 title('Coordonnees des noeuds'); % set the title for the graph
 xlabel('Ligne');
 ylabel('Colonne');
-legend('Noeuds balises', 'Noeuds inconnus','Position reel');
+legend('Noeuds balises', 'Noeuds inconnus');
 
 for i = (numBeaconNodes+1):(numBeaconNodes+numUnknownNodes)
 
