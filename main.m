@@ -34,7 +34,7 @@ for i = (numBeaconNodes+1): (numBeaconNodes + numUnknownNodes)
     TablBeacon = [];
     for j = 1:numBeaconNodes
 
-        distance = norm(coordinates(i,:) - coordinates(j,:)) % To calculate the distance
+        distance = norm(coordinates(i,:) - coordinates(j,:)); % To calculate the distance
         if distance < distBeaconNodes
             count = count+1;
             
