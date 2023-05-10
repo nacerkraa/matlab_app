@@ -1,4 +1,4 @@
-function [ArrayOfErrors] = fitness(numBeaconNodes, popSize, coordinates)
+function [ArrayOfErrors] = calcFitness(numBeaconNodes, popSize, coordinates)
 % Define variables
 count = 0;
 ArrayOfErrors = [];

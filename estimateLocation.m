@@ -13,20 +13,19 @@ coordinates(1:numBeaconNodes, :) = beaconNodes;
 
     figure(2)
     makeGraph(beaconNodes,UnkownPosition,coordinates); % draw the graph of the population and the beacons nodes
-
-for i = 1:10
-    population = coordinates(numBeaconNodes+1:end, :);
-    popSize = length(population);
-    [ArrayOfErrors] = calcFitness(numBeaconNodes, popSize, coordinates); % Calculate the error of each Individuel and the sum of all these errors
-    newPopGenerated = generateNewPopulation(numBeaconNodes, ArrayOfErrors, coordinates); % to create a new generation from two parents selected by fortune_wheel
-    newPopulation = [population; newPopGenerated]; % newnewPopulation now contain 80 population
-    coordinates = [beaconNodes; population; newPopGenerated];
-    popSize = popSize*2;
-    [ArrayOfErrors] = calcFitness(numBeaconNodes, popSize, coordinates);
-    ArrayOfErrors = ArrayOfErrors.'; % to make ArrayOfErrors horizontal to add it for adding it to the population array after
-    mainTable = [newPopulation ArrayOfErrors]; % mainTable it's a matrix contain tables and their errors
-    bestPositions = selectBestGeneration(mainTable); % select the best 40 from 80 population based of their error
-    coordinates = [beaconNodes ;bestPositions]; % The best generation becomes the new population
-end
-    bestPositions
+    for i = 1:10
+        population = coordinates(numBeaconNodes+1:end, :);
+        popSize = length(population);
+        [ArrayOfErrors] = calcFitness(numBeaconNodes, popSize, coordinates); % Calculate the error of each Individuel and the sum of all these errors
+        newPopGenerated = generateNewPopulation(numBeaconNodes, ArrayOfErrors, coordinates); % to create a new generation from two parents selected by fortune_wheel
+        newPopulation = [population; newPopGenerated]; % newnewPopulation now contain 80 population
+        coordinates = [beaconNodes; population; newPopGenerated];
+        popSize = popSize*2;
+        [ArrayOfErrors] = calcFitness(numBeaconNodes, popSize, coordinates);
+        ArrayOfErrors = ArrayOfErrors.'; % to make ArrayOfErrors horizontal to add it for adding it to the population array after
+        mainTable = [newPopulation ArrayOfErrors]; % mainTable it's a matrix contain tables and their errors
+        bestPositions = selectBestGeneration(mainTable); % select the best 40 from 80 population based of their error
+        coordinates = [beaconNodes ;bestPositions]; % The best generation becomes the new population
+    end
+        disp(bestPositions)
 end

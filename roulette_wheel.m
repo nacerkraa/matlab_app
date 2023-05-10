@@ -7,8 +7,8 @@
 % fortune_wheel ([1 5 3 15 8 1])
 %    most probable result is 4 (weights 15)
 % ---------------------------------------------------------
-function choice = fortune_wheel(weights)
-  accumulation = cumsum(weights);
+function parent_index = roulette_wheel(probabilities)
+  accumulation = cumsum(probabilities);
   p = rand() * accumulation(end);
   chosen_index = -1;
   for index = 1 : length(accumulation)
@@ -17,4 +17,5 @@ function choice = fortune_wheel(weights)
       break;
     end
   end
-  choice = chosen_index;
+  parent_index = chosen_index;
+end

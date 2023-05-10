@@ -1,8 +1,5 @@
+
 function [positions] = crossoverParents(pos1, pos2)
-    clc, clearvars
-    pos1 = [5 3];
-    pos2 = [6 8];
-    
     pos3 = [pos1(1) pos2(2)];
     pos4 = [pos2(1) pos1(2)];
     

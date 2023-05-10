@@ -1,7 +1,6 @@
 % Part-1
 % main algorithm
 clc, clearvars, close all
-
 % Define variables
 numUnknownNodes = 40;
 distBeaconNodes = 10;
@@ -10,7 +9,7 @@ beaconNodes = [5, 10; 18, 26; 15, 30; 20, 35; 25, 25; 30, 40; 35, 14; 40, 20; 42
 numBeaconNodes = length(beaconNodes);
 coordinates = NaN(numUnknownNodes + numBeaconNodes,2);
 coordinates(1:numBeaconNodes, :) = beaconNodes;
-for i = (numBeaconNodes+1):(numBeaconNodes+popSize)
+for i = (numBeaconNodes+1):(numBeaconNodes + popSize)
     rowCoord = randi([1, 50]);
     colCoord = randi([1, 50]);
     coordinates(i, :) = [rowCoord, colCoord];
@@ -34,9 +33,9 @@ for i = (numBeaconNodes+1): (numBeaconNodes + numUnknownNodes)
     count = 0;
     TablBeacon = [];
     for j = 1:numBeaconNodes
-        distance = calcDistance(coordinates(i,:), coordinates(j,:));
 
-        if distance < distBeaconNodes 
+        distance = norm(coordinates(i,:) - coordinates(j,:)) % To calculate the distance
+        if distance < distBeaconNodes
             count = count+1;
             
             TablBeacon(end+1,:) = [coordinates(j,1),coordinates(j,2)]; % intialis? deux valeur a TablBeacon.coordinates(j,1),coordinates(j,2
