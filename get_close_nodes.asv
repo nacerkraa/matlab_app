@@ -14,7 +14,8 @@ function [unokown_node, close_nodes] = get_close_nodes(anchor_nodes, unknown_nod
       if length(TablBeacon) >= 3 & length(coordinates(i,:)) > 0
                count = count+1;
                unokown_node = coordinates(i,:);
-               disp(['Unknown node: ', num2str(count),' location: (', num2str(unokown_node(1)),'), (',num2str(unokown_node(2)),')']);
+               disp(['Unknown node: ', num2str(count),' location: ', num2str(),'), (',]);
+               
                close_nodes = TablBeacon
       end
    end
