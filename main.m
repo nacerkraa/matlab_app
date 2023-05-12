@@ -22,8 +22,10 @@ xlabel('Ligne');
 ylabel('Colonne');
 legend('Noeuds balises', 'Noeuds inconnus');
 
-threshold = 10;
-[location_unokown_node, close_nodes] = get_close_nodes(anchor_nodes, unknown_nodes, threshold);
+threshold = 30;
+[unokown_node, close_nodes] = get_close_nodes(anchor_nodes, unknown_nodes, threshold);
 
 %Choose random postion to estimate it location
-estimateLocation(close_nodes, location_unokown_node);
+bestPosition = estimateLocation(close_nodes, unokown_node);
+firstValue = bestPosition(1,:)
+scatter(firstValue(1),firstValue(2),50, 'r','x'); % Set the real position just for testing porposes

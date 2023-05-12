@@ -15,7 +15,7 @@ function [unokown_node, close_nodes] = get_close_nodes(anchor_nodes, unknown_nod
                count = count+1;
                unokown_node = coordinates(i,:);
                disp(['Unknown node: ', num2str(count),' location: (', num2str(unokown_node(1)),'), (',num2str(unokown_node(2)),')']);
-               close_nodes = TablBeacon
+               close_nodes = TablBeacon 
       end
    end
 end

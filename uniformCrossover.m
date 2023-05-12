@@ -1,4 +1,4 @@
-% uniform crossove
+% uniform crossover
 function [positions] = uniformCrossover(pos1, pos2)
     mask = rand(size(pos1)) < 0.5;
     offspring1 = pos1.*mask + pos2.*(1-mask);
